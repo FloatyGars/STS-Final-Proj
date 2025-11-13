@@ -11,6 +11,7 @@ body {
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
+
 }
 
 /* HEADER */
@@ -37,6 +38,7 @@ main {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
+    text-align: justify;
 }
 
 /* SECTION TITLES */
@@ -82,8 +84,6 @@ p {
 }
 
 .about-list li::before {
-    content: "•";
-    color: #f97316;
     position: absolute;
     left: 0;
 }
