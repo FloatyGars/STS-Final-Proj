@@ -4,23 +4,20 @@
 // Carousel code (runs only on pages where carousel exists)
 const carousel = document.querySelector(".carousel");
 const cards = document.querySelectorAll(".card");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
+const prev = document.querySelector('.carousel-btn.prev');
+const next = document.querySelector('.carousel-btn.next');
 
 if (carousel && cards.length > 0) {
 
     // Automatically calculate card width including spacing
     let cardWidth = cards[0].offsetWidth + 20; // gap of 20px
 
-
-
-    // Auto-slide every 4 seconds
-    setInterval(() => {
-        carousel.scrollBy({
-            left: cardWidth,
-            behavior: "smooth",
-        });
-    }, 4000);
+    next.addEventListener('click', () => {
+        carousel.scrollBy({ left: carousel.clientWidth * 0.8, behavior: 'smooth' });
+    });
+    prev.addEventListener('click', () => {
+        carousel.scrollBy({ left: -carousel.clientWidth * 0.8, behavior: 'smooth' });
+    });
 }
 
 
