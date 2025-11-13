@@ -14,23 +14,48 @@ body {
 
 }
 
+/* FADE & SLIDE ANIMATIONS */
+.fade-in,
+.fade-up,
+.slide-left,
+.slide-right {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.slide-left {
+    transform: translateX(-40px);
+}
+
+.slide-right {
+    transform: translateX(40px);
+}
+
+.show {
+    opacity: 1;
+    transform: translate(0);
+}
+
 /* HEADER */
-
-
-header h1 {
-    font-size: 28px;
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav a {
     color: #fff;
-    margin-left: 25px;
+    margin-right: 20px;
     text-decoration: none;
-    font-weight: 500;
     transition: color .3s ease;
 }
 
 nav a:hover {
-    color: #f97316; /* Orange accent */
+    color: #ff9800;
 }
 
 /* MAIN CONTAINER */
@@ -71,29 +96,41 @@ p {
 }
 
 /* LISTS */
+.about-section {
+    padding: 60px;
+    background: #fff;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.about-section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
 .about-list {
-    margin-left: 25px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .about-list li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    position: relative;
-    padding-left: 15px;
-}
-
-.about-list li::before {
-    position: absolute;
-    left: 0;
+    margin-bottom: 8px;
+    font-size: 17px;
 }
 
 /* CONTENT CARD STYLE */
-main p, main ul {
+main p,
+main ul {
     background: #fff;
     padding: 18px 22px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
 }
 
@@ -115,4 +152,62 @@ footer {
     text-align: center;
     margin-top: 40px;
     font-size: 14px;
+}
+
+/* Next Page button (top-right) */
+.next-page-btn {
+    display: inline-block;
+    float: right;
+    margin: 10px 20px 20px 0;
+    /* top, right, bottom, left */
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    /* start slightly below */
+    transition: all 0.8s ease;
+}
+
+.next-page-btn:hover {
+    background-color: #e68a00;
+}
+
+/* Previous Page button (top-left) */
+.prev-page-btn {
+    display: inline-block;
+    float: left;
+    margin: 10px 0 20px 10px;
+    /* top, right, bottom, left */
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    /* start slightly below */
+    transition: all 0.8s ease;
+}
+
+/* When "show" class is added, buttons slide up */
+.next-page-btn.show,
+.prev-page-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.prev-page-btn:hover {
+    background-color: #e68a00;
+}
+
+/* Clear floats so main content doesn't wrap around buttons */
+main.about-section::before {
+    content: "";
+    display: block;
+    clear: both;
 }
